@@ -17,7 +17,7 @@ module.exports = app => {
     // since we are using Passport, and the user is signed in we have access to the user model through req.user. With this access to the user model, we also have access to model methods.
     req.user.credits += 5;
     const user = await req.user.save();
-    console.log(user);
+    //console.log(user);
     res.send(user);
   });
 };
