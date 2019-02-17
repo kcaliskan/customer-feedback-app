@@ -11,7 +11,10 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "_commentz": "So this is going to be the script that gets called automatically after our server has completed installing its own dependencies. So this script right here will be called automatically after server dependencies have installed.",
+    "_commentz2": "So the first thing we're going to do inside of here is make sure that we tell Heroku to install all NPM modules both in development dependencies and the production dependencies as well.So by putting this statement right here inside of this script it ensures that this environment variable will be only set for the duration of this command. So like I said we don't want to set this kind of change how things are being done on our server. We want to only have this flag set right here for dependencies that are installed on our client project.",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "",
   "license": "ISC",

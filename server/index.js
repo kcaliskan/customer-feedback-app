@@ -27,6 +27,8 @@ require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
+  //So when a request comes into express express we'll first check to see if there is some specific file that matches up with what that request is looking for. If there is it's going to answer the request with this line right here if there's not express will then continue on down and we'll find this next route handler which we can essentially think of as the absolute catchall inside of our application.
+
   // Express will serve up production assets
   // like our main.js file, or main.css file!
 
@@ -38,6 +40,9 @@ if (process.env.NODE_ENV === "production") {
 
   // Express will serve up the index.html file
   // if it doesn't recognize the route
+
+  //Essentially this says if someone makes a request for a route that we do not understand just serve it up the HTML document.
+  //If we don't know what this route is we will just assume that the react route or side of our application is responsible for this route. So we're just going to kick the user over to our client side application.
   const path = require("path");
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
