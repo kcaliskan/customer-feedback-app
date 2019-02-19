@@ -23,5 +23,6 @@ module.exports = app => {
     //First argument is going to be an object with subject and recipients. "survey"
     //Second argument will be the HTML to e-mail to use inside the body of the e-mail. surveyTemplate(survey).
     const mailer = new Mailer(survey, surveyTemplate(survey));
+    mailer.send();
   });
 };
