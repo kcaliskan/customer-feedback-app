@@ -26,6 +26,7 @@ app.use(passport.session());
 
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   //So when a request comes into express express we'll first check to see if there is some specific file that matches up with what that request is looking for. If there is it's going to answer the request with this line right here if there's not express will then continue on down and we'll find this next route handler which we can essentially think of as the absolute catchall inside of our application.
