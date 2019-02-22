@@ -7,7 +7,7 @@ const surveySchema = new Schema({
   body: String,
   subject: String,
   recipients: [RecipientSchema],
-  yes: { type: Number, defaukt: 0 },
+  yes: { type: Number, default: 0 },
   no: { type: Number, default: 0 },
   //We add the idea to survey schema that every survey is going to belong to a very particular user.
 
