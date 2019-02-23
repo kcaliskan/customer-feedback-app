@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon index.js",
+    "server": "nodemon index.js --ignore './client/'",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "_commentz": "So this is going to be the script that gets called automatically after our server has completed installing its own dependencies. So this script right here will be called automatically after server dependencies have installed.",
