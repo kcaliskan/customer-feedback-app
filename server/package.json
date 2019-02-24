@@ -11,10 +11,11 @@
     "start": "node index.js",
     "server": "nodemon index.js --ignore './client/'",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
     "_commentz": "So this is going to be the script that gets called automatically after our server has completed installing its own dependencies. So this script right here will be called automatically after server dependencies have installed.",
     "_commentz2": "So the first thing we're going to do inside of here is make sure that we tell Heroku to install all NPM modules both in development dependencies and the production dependencies as well.So by putting this statement right here inside of this script it ensures that this environment variable will be only set for the duration of this command. So like I said we don't want to set this kind of change how things are being done on our server. We want to only have this flag set right here for dependencies that are installed on our client project.",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "webhook": "ssh -t -t -R vindico:80:localhost:5000 serveo.net"
   },
   "author": "",
   "license": "ISC",
@@ -23,10 +24,12 @@
     "concurrently": "^4.1.0",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.4",
+    "lodash": "^4.17.11",
     "mongoose": "^5.4.9",
-    "nodemon": "^1.18.9",
+    "nodemon": "^1.18.10",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "path-parser": "^4.0.2",
     "sendgrid": "^5.2.3",
     "stripe": "^6.25.1"
   }
